@@ -52,9 +52,12 @@ requirements:
 test:
   requires:
     - python {{ python_min }}
+    - pip
   imports:
     - tom_targets
     - tom_observations
+  commands:
+    - pip check
 
 about:
   home: https://github.com/TOMToolkit/tom_base
