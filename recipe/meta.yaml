@@ -1,5 +1,5 @@
 {% set name = "tomtoolkit" %}
-{% set version = "2.24.4" %}
+{% set version = "2.24.5" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/tomtoolkit-{{ version }}.tar.gz
-  sha256: 2760788bdc58f06f89f43014d7f6a8569360546f0509ef8f26deaf140e31c14c
+  sha256: f148ffb59a5af078073a384a4b0975085cc9f0b26babf476cd1399d53fad9cd6
 
 build:
   noarch: python
@@ -40,6 +40,7 @@ requirements:
     - django-gravatar2 >=1.0.0,<2.0.0
     - django-guardian >=2.0.0,<3.0.0
     - django-htmx >=1.0.0,<2.0.0
+    - django-tasks >=0.6.1,<0.7.0
     - fits2image >=0.4,<0.5
     - markdown <4
     - pillow >9.2,<12.0
@@ -52,9 +53,12 @@ requirements:
 test:
   requires:
     - python {{ python_min }}
+    - pip
   imports:
     - tom_targets
     - tom_observations
+  commands:
+    - pip check
 
 about:
   home: https://github.com/TOMToolkit/tom_base
