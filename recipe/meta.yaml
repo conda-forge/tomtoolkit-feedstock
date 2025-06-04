@@ -1,5 +1,7 @@
 {% set name = "tomtoolkit" %}
 {% set version = "2.24.5" %}
+{% set python_min = ">=3.10" %}
+
 
 package:
   name: {{ name|lower }}
@@ -21,9 +23,8 @@ requirements:
     - poetry-dynamic-versioning >=1.0.0,<2.0.0
     - pip
   run:
-    - python >={{ python_min }}
+    - python {{ python_min }}
     - numpy >1.24,<2.2
-    - asdf >=2.14.4 # temporarily, for specutils
     - astroquery <1
     - astroplan >=0.8,<0.11
     - astropy-base >=5.3.3,<7
