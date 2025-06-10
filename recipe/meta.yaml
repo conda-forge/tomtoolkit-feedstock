@@ -55,11 +55,12 @@ test:
   requires:
     - python {{ python_min }}
     - pip
+    - pipdeptree
   imports:
     - tom_targets
     - tom_observations
   commands:
-    - pip check
+    - pipdeptree
 
 about:
   home: https://github.com/TOMToolkit/tom_base
