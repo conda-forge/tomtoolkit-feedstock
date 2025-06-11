@@ -14,7 +14,7 @@ source:
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
@@ -32,31 +32,34 @@ requirements:
     - djangorestframework >=3.15,<4
     - django-bootstrap4 >3,<25
     - beautifulsoup4 <5
-    - dramatiq <2.0.0
     - django-contrib-comments >=2.0,<3.0
     - django-crispy-forms >=2.0,<3.0
     - crispy-bootstrap4 >=2023.1,<2024.11
-    - django-dramatiq >=0.12,<0.13
     - django-extensions >=3.0.0,<4.0.0
     - django-filter >=23,<25
     - django-gravatar2 >=1.0.0,<2.0.0
     - django-guardian >=2.0.0,<3.0.0
     - django-htmx >=1.0.0,<2.0.0
+    - django-tasks >=0.6.1,<0.7.0
     - fits2image >=0.4,<0.5
     - markdown <4
     - pillow >9.2,<12.0
     - plotly <6
     - python-dateutil <3
     - requests <3
-    - specutils <2
+    - specutils >=1.17,<2
     - importlib-resources >=6.4.5,<6.5.0
 
 test:
   requires:
     - python {{ python_min }}
+    - pip
+    - pipdeptree
   imports:
     - tom_targets
     - tom_observations
+  commands:
+    - pipdeptree
 
 about:
   home: https://github.com/TOMToolkit/tom_base
