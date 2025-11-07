@@ -1,5 +1,5 @@
 {% set name = "tomtoolkit" %}
-{% set version = "2.26.1" %}
+{% set version = "2.26.2" %}
 {% set python_min = "3.10" %}
 
 
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/tomtoolkit-{{ version }}.tar.gz
-  sha256: ca61687cd7c236d20603fb251b0a3ae4a548e0a65efcaff4fea73a4dd34d6512
+  sha256: 3a7c7c3ddfe0549f30988e5a971d8c79044c8f1658571d3772e9a581b7686761
 
 build:
   noarch: python
