@@ -1,7 +1,5 @@
 {% set name = "tomtoolkit" %}
 {% set version = "3.1.1" %}
-{% set python_min = "3.10" %}
-
 
 package:
   name: {{ name|lower }}
@@ -14,7 +12,7 @@ source:
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
@@ -24,44 +22,48 @@ requirements:
     - pip
   run:
     - python >={{ python_min }}
-    - numpy >1.24,<2.2
-    - astroquery <1
+    - alerce >=2.3.1,<3.0
     - astroplan >=0.8,<0.11
     - astropy-base >=5.3.3,<8
-    - django <6
-    - djangorestframework >=3.15,<4
-    - django-bootstrap4 >3,<25
+    - astroquery <1
     - beautifulsoup4 <5
-    - cryptography <=47
+    - crispy-bootstrap5 <2027
+    - cryptography <=50.0.0
+    - django >=5.2.18,<6
+    - django-allauth >=65.19.7,<66
+    # conda has no package extras; these two are what django-allauth[mfa] pulls in
+    - fido2 >=1.1.2,<3
+    - qrcode >=7.0.0,<9
+    - django-bootstrap5 <27
     - django-contrib-comments >=2.0,<3.0
-    - django-crispy-forms >=2.0,<3.0
-    - crispy-bootstrap4 >=2023.1,<2024.11
+    - django-crispy-forms >=2.7,<3.0
     - django-extensions >=3.0.0,<4.0.0
     - django-filter >=23,<25
     - django-gravatar2 >=1.0.0,<2.0.0
     - django-guardian >=2.0.0,<3.0.0
-    - django-htmx >=1.0.0,<2.0.0
+    - django-htmx >=1.29.0,<2.0.0
+    - django-tables2 >=3.0,<4
     - django-tasks >=0.6.1,<0.7.0
+    - djangorestframework >=3.18.3,<4
     - fits2image >=0.4,<0.5
+    - importlib-resources >=6.4.5,<6.5.0
     - markdown <4
+    - numpy >1.24,<2.2
     - pillow >9.2,<13.0
     - plotly <6
     - python-dateutil <3
     - requests <3
     - specutils >=1.20.0,<3
-    - importlib-resources >=6.4.5,<6.5.0
-    - django-tables2 >=3.0,<4
 
 test:
   requires:
     - python {{ python_min }}
     - pip
-    - pipdeptree
   imports:
     - tom_targets
     - tom_observations
   commands:
-    - pipdeptree
+    - pip check
 
 about:
   home: https://github.com/TOMToolkit/tom_base
