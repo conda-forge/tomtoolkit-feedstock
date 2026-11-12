@@ -1,5 +1,5 @@
 {% set name = "tomtoolkit" %}
-{% set version = "3.1.1" %}
+{% set version = "3.2.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/tomtoolkit-{{ version }}.tar.gz
-  sha256: 719afa5e730955e299dfa0929b8b87f9af88c5e976239abe095ce59b63374749
+  sha256: cb3510f29ffee4688e5c29de523c9f0517bb7e717b50546fe54303029115e005
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   host:
